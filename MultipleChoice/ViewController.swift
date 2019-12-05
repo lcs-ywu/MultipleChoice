@@ -41,31 +41,39 @@ class ViewController: UIViewController {
         let allPossibleAnswer = "ABCDE"
         
         for eachStudentAnswer in studentAnswerAsString {
-            
             guard  allPossibleAnswer.contains(eachStudentAnswer) else{
                 checkResult.text = "Student answers contain invalid choices, please ensure only character A, B, C, D or E are used"
                 return
-            }
-            for eachCorrectAnswer in correctAnswerAsString {
-                guard allPossibleAnswer.contains(eachCorrectAnswer) else {
-                    checkResult.text = "Correct answers contain invalid choices, please ensure only character A, B, C, D or E are used"
-                    return
                 }
-                
-                
-                
+            }
+        for eachCorrectAnswer in correctAnswerAsString {
+            guard allPossibleAnswer.contains(eachCorrectAnswer) else {
+                checkResult.text = "Correct answers contain invalid choices, please ensure only character A, B, C, D or E are used"
+                return
+                }
+            }
+        var index = -1
+        var correctNumber = 0
+        for eachStudentAnswer in studentAnswerAsString{
+            if index == questionNumberAsInt + 1{
+                break
+            }
+            index += 1
+            let theNthCorrectAnswer = correctAnswerAsString.index(correctAnswerAsString.startIndex, offsetBy: index)
+            if eachStudentAnswer == correctAnswerAsString[theNthCorrectAnswer] {
+                correctNumber += 1
+            }else{
+                correctNumber += 0
             }
         }
+        checkResult.text = "The student answered \(correctNumber) question(s) correctly"
         
         
-        
-        
-        
-        
+        }
         
         
     }
     
     
-}
+
 
