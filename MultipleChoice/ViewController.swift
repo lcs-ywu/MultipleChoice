@@ -63,9 +63,6 @@ class ViewController: UIViewController {
         var correctNumber = 0
         //Use a for in loop to check if each student answer is the same as the correspond correct answer
         for eachStudentAnswer in studentAnswerAsString{
-            //if index == questionNumberAsInt + 1{
-                //break
-            //}
             //Each time the for in loop works, index plus one so that we jumped to the next correct answer
             index += 1
             let theNthCorrectAnswer = correctAnswerAsString.index(correctAnswerAsString.startIndex, offsetBy: index)
